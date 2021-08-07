@@ -1,4 +1,4 @@
-from flask import Flask,request, url_for, redirect, render_template, jsonify
+from flask import Flask,request, url_for, redirect, render_template
 import warnings
 warnings.filterwarnings('ignore')
 import pandas as pd
