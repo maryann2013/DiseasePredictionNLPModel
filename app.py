@@ -6,6 +6,9 @@ from sklearn.naive_bayes import MultinomialNB
 import joblib
 import pickle
 
+nltk.download('stopwords')
+nltk.download('wordnet')
+
 # load the model from disk
 filename = 'nlp_model.pkl'
 clf = pickle.load(open(filename, 'rb'))
