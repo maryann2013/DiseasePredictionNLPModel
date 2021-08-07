@@ -1,19 +1,29 @@
-from flask import Flask,render_template,url_for,request
-import pandas as pd 
+from flask import Flask,request, url_for, redirect, render_template, jsonify
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import numpy as np
+import os
 import pickle
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
 import joblib
 import pickle
+import nltk
+
+app = Flask(__name__)
 
 nltk.download('stopwords')
 nltk.download('wordnet')
+################
+maxlen = 700   #
+verbose = False#
+################
+
 
 # load the model from disk
 filename = 'nlp_model.pkl'
 clf = pickle.load(open(filename, 'rb'))
 cv=pickle.load(open('transform.pkl','rb'))
-app = Flask(__name__)
+
 
 @app.route('/')
 def home():
